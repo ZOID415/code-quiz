@@ -82,10 +82,12 @@ function leaderBoard() {
   console.log(highscores);
   for (let i = 0; i < highscores.length; i++) {
     let ul = document.createElement("ul");
+    //  Creating an unordered list with ul
     console.log(ul);
 
-    let scoreHTML = `
-        <li>${i + 1}. ${highscores[i].name} - ${highscores[i].score} </li>
+    //Ask what the orange is (including backticks)
+    let scoreHTML = `    
+    <li>${i + 1}. ${highscores[i].name} - ${highscores[i].score} </li>
     `;
 
     // let x = "li" + i +1 + ". " +
@@ -202,3 +204,6 @@ submitBtn.onclick = saveHighscore;
 // Start quiz after clicking start quiz
 
 startBtn.onclick = quizStart;
+
+//remember to camelCase
+console.log("camelCase");
