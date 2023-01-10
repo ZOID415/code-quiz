@@ -7,8 +7,9 @@ var startBtn = document.querySelector("#start");
 var nameEl = document.querySelector("#name");
 var feedbackEl = document.querySelector("#feedback");
 var reStartBtn = document.querySelector("#restart");
-var leaderBoardEl = document.querySelector(".leaderboard");
+var leaderBoardEl = document.querySelector("#leaderboard");
 var highscoreEl = document.querySelector("#highscore");
+var clearBtn = document.querySelector("#clear-btn")
 var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
 
 // Create object of arrays that will be the questions on the quiz
@@ -81,14 +82,12 @@ function leaderBoard() {
   highscoreEl.classList.remove("hide");
   console.log(highscores);
   for (let i = 0; i < highscores.length; i++) {
-    let ul = document.createElement("ul");
+    let ul = document.createElement("li");
     //  Creating an unordered list with ul
     console.log(ul);
 
     //Ask what the orange is (including backticks)
-    let scoreHTML = `    
-    <li>${i + 1}. ${highscores[i].name} - ${highscores[i].score} </li>
-    `;
+    let scoreHTML = `${i + 1}. ${highscores[i].name} - ${highscores[i].score}`;
 
     // let x = "li" + i +1 + ". " +
 
@@ -185,6 +184,22 @@ function saveHighscore() {
     };
     highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
+    //TODO: Display new score on html
+    let ul = document.createElement("li");
+    //  Creating an unordered list with ul
+    console.log(ul);
+
+    //Ask what the orange is (including backticks)
+    let scoreHTML = `${highscores.length}. ${initals} - ${time}`;
+
+    // let x = "li" + i +1 + ". " +
+
+    
+
+    ul.innerHTML = scoreHTML;
+
+    leaderBoardEl.appendChild(ul);
+
   }
 }
 

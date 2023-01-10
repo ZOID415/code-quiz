@@ -45,9 +45,14 @@ h1 {
     
 }
 
-.leaderboard ul li{
-    display: inline;
+.leaderboard {
+    list-style-type: none;
+
 }
+
+
+
+
 
 
 
